@@ -174,6 +174,9 @@ var DefaultEtcdDiskPriorities = []string{
 }
 
 func init() {
+	if os.Getenv("DEFAULT_VERSION") != "" {
+		DefaultVersion = os.Getenv("DEFAULT_VERSION")
+	}
 	if os.Getenv("DEFAULT_DATA_DIR") != "" {
 		DefaultDataDir = os.Getenv("DEFAULT_DATA_DIR")
 	}
