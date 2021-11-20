@@ -24,7 +24,7 @@ import (
 
 // Command-line flag defaults
 var (
-	DefaultVersion    = "3.5.0"
+	DefaultVersion    = "3.5.1"
 	DefaultInstallDir = "/opt/bin/"
 
 	DefaultReleaseURL      = "https://github.com/coreos/etcd/releases/download"
