@@ -60,8 +60,8 @@ var (
 )
 
 func init() {
-	if os.Getenv("DEFAULT_ETCD_CERTIFACATE_VALIDITY") != "" {
-		day, _ := strconv.Atoi(os.Getenv("DEFAULT_ETCD_CERTIFACATE_VALIDITY"))
+	if os.Getenv("DEFAULT_CERTIFACATE_VALIDITY") != "" {
+		day, _ := strconv.Atoi(os.Getenv("DEFAULT_CERTIFACATE_VALIDITY"))
 		certificateValidity = time.Hour * time.Duration(24*day)
 	}
 }
