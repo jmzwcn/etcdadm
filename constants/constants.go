@@ -174,15 +174,15 @@ var DefaultEtcdDiskPriorities = []string{
 }
 
 func init() {
-	if os.Getenv("default_data_dir") != "" {
-		DefaultDataDir = os.Getenv("default_data_dir")
+	if os.Getenv("DEFAULT_DATA_DIR") != "" {
+		DefaultDataDir = os.Getenv("DEFAULT_DATA_DIR")
 	}
-	if os.Getenv("default_peer_port") != "" {
-		port, _ := strconv.Atoi(os.Getenv("default_peer_port"))
+	if os.Getenv("DEFAULT_PEER_PORT") != "" {
+		port, _ := strconv.Atoi(os.Getenv("DEFAULT_PEER_PORT"))
 		DefaultPeerPort = port
 	}
-	if os.Getenv("default_client_port") != "" {
-		port, _ := strconv.Atoi(os.Getenv("default_client_port"))
+	if os.Getenv("DEFAULT_CLIENT_PORT") != "" {
+		port, _ := strconv.Atoi(os.Getenv("DEFAULT_CLIENT_PORT"))
 		DefaultClientPort = port
 	}
 }
