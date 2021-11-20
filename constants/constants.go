@@ -167,6 +167,4 @@ fi
 // DefaultEtcdDiskPriorities defines the default etcd disk priority.
 var DefaultEtcdDiskPriorities = []string{
 	"Nice=-10",
-	"IOSchedulingClass=best-effort",
-	"IOSchedulingPriority=2",
 }
