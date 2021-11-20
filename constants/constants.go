@@ -16,10 +16,14 @@ limitations under the License.
 
 package constants
 
-import "time"
+import (
+	"os"
+	"strconv"
+	"time"
+)
 
 // Command-line flag defaults
-const (
+var (
 	DefaultVersion    = "3.5.0"
 	DefaultInstallDir = "/opt/bin/"
 
@@ -167,4 +171,18 @@ fi
 // DefaultEtcdDiskPriorities defines the default etcd disk priority.
 var DefaultEtcdDiskPriorities = []string{
 	"Nice=-10",
+}
+
+func init() {
+	if os.Getenv("default_data_dir") != "" {
+		DefaultDataDir = os.Getenv("default_data_dir")
+	}
+	if os.Getenv("default_peer_port") != "" {
+		port, _ := strconv.Atoi(os.Getenv("default_peer_port"))
+		DefaultPeerPort = port
+	}
+	if os.Getenv("default_client_port") != "" {
+		port, _ := strconv.Atoi(os.Getenv("default_client_port"))
+		DefaultClientPort = port
+	}
 }
