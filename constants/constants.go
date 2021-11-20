@@ -177,6 +177,9 @@ func init() {
 	if os.Getenv("DEFAULT_VERSION") != "" {
 		DefaultVersion = os.Getenv("DEFAULT_VERSION")
 	}
+	if os.Getenv("DEFAULT_INSTALL_DIR") != "" {
+		DefaultInstallDir = os.Getenv("DEFAULT_INSTALL_DIR")
+	}
 	if os.Getenv("DEFAULT_DATA_DIR") != "" {
 		DefaultDataDir = os.Getenv("DEFAULT_DATA_DIR")
 	}
