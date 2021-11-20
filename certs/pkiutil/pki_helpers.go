@@ -32,6 +32,7 @@ import (
 	"net"
 	"os"
 	"path/filepath"
+	"strconv"
 	"time"
 
 	"math"
@@ -45,7 +46,7 @@ import (
 	"sigs.k8s.io/etcdadm/constants"
 )
 
-const (
+var (
 	// PrivateKeyBlockType is a possible value for pem.Block.Type.
 	PrivateKeyBlockType = "PRIVATE KEY"
 	// PublicKeyBlockType is a possible value for pem.Block.Type.
@@ -57,6 +58,13 @@ const (
 	rsaKeySize             = 2048
 	certificateValidity    = time.Hour * 24 * 365 * 100
 )
+
+func init() {
+	if os.Getenv("DEFAULT_ETCD_CERTIFACATE_VALIDITY") != "" {
+		day, _ := strconv.Atoi(os.Getenv("DEFAULT_ETCD_CERTIFACATE_VALIDITY"))
+		certificateValidity = time.Hour * time.Duration(24*day)
+	}
+}
 
 // NewCertificateAuthority creates new certificate and private key for the certificate authority
 func NewCertificateAuthority() (*x509.Certificate, *rsa.PrivateKey, error) {

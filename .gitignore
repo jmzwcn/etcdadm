@@ -1,7 +1,7 @@
 bin
 .vscode
 .DS_Store
-etcdadm
+#etcdadm
 plantuml.jar
 vendor
 .idea
